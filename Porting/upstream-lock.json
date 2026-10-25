@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "name": "@ai-sdk/replicate",
+      "reviewedVersion": "3.0.69",
+      "ledgerKind": "provider",
+      "evidence": "`AIProviders.replicate`, `ReplicateImageModel`, `ReplicateVideoModel`, `ReplicateProviderTests.swift`",
+      "reviewStatus": "imported-reviewed-with-gaps",
+      "archiveIntegrity": "sha512-v710HzbNOxpVIZ/ceyB7tB28wMgMI0+8C2JqmE1FcemjszvvH/1189YbQeEK/PsZONX/7viO2WY6xQFvE4TSSg==",
+      "sourceRef": "npm:@ai-sdk/replicate@3.0.69",
+      "testRef": "682e2dd71456f14f9da33a1b983d1998c3a1184c",
+      "testRefRelationship": "inventory-snapshot-not-release-verified",
+      "contractFamilies": [],
+      "contractReview": "not-imported; inspect upstream declarations before extraction"
+    }
+  ]
+}
