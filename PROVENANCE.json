@@ -1,41 +1,44 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-replicate",
-  "version": "1.0.0",
-  "releaseID": "modular-3",
+  "version": "1.1.0",
+  "releaseID": "weekly-upstream-20261101",
   "source": {
-    "commit": "7fc9b4cd72f8f83b75ba7eee2e38d37127539317",
-    "baseCommit": "7fc9b4cd72f8f83b75ba7eee2e38d37127539317",
+    "commit": "ea057797494ab9bb66df8c6bfd8edc10245b20e7",
+    "baseCommit": "ea057797494ab9bb66df8c6bfd8edc10245b20e7",
     "workingTree": false,
-    "inputsSHA256": "49b802ba4a30454f78c9886ab3114537ef659ab3e6db7775479b7351f6e3f0ab"
+    "inputsSHA256": "b46f3e07b0a583d6fee81035987d74a06fc5c6109cbdf228144d1172d2c3676e"
   },
   "dependencies": [
     {
       "package": "swift-ai-core",
-      "from": "1.1.0"
+      "from": "1.2.0"
     }
   ],
   "changes": [
     {
-      "id": "remaining-package-extraction",
-      "notes": "Extract the existing runtime, typed settings and standalone tests from the compatibility aggregate. Preserve the reviewed npm baseline and existing capability/gap boundaries.",
-      "compatibility": "Initial independent Swift package version. Existing SwiftAISDK entry points remain in the development compatibility facade; no npm-version equivalence is implied."
+      "id": "weekly-upstream-20261101",
+      "notes": "Add native async throwing apiKeyProvider; resolve a fresh key immediately before every authenticated HTTP send/stream through the shared transport. Preserve static keys, custom header precedence, error/abort propagation, request builders and response parsers. Every create/poll request resolves independently through the shared transport, retaining prefer headers and existing origin-safe downloads. Reviewed upstream: @ai-sdk/replicate 3.0.69 to 3.0.73. Validation passed: node Scripts/test-packages.mjs (all 52 owning package suites and the compatibility facade); node Scripts/sdk.mjs generate --check; node --test Scripts/tests/*.test.cjs (27 passed); docs-site check and build (100 pages). Live provider calls were not run.",
+      "compatibility": "Minor release for additive native API; existing static settings and call sites remain compatible. Updated direct dependency minimums are recorded in the manifest. Existing documented JS/framework and native product gaps remain; version-delta review does not imply full parity or live-service testing. Explicit custom authentication skips an unused credential supplier, a deliberate native callback-order adaptation."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-replicate",
   "upstream": [
     {
       "name": "@ai-sdk/replicate",
-      "reviewedVersion": "3.0.69",
+      "reviewedVersion": "3.0.73",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.replicate`, `ReplicateImageModel`, `ReplicateVideoModel`, `ReplicateProviderTests.swift`",
+      "evidence": "`AIProviders.replicate`, `ReplicateImageModel`, `ReplicateVideoModel`, `ReplicateProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-v710HzbNOxpVIZ/ceyB7tB28wMgMI0+8C2JqmE1FcemjszvvH/1189YbQeEK/PsZONX/7viO2WY6xQFvE4TSSg==",
-      "sourceRef": "npm:@ai-sdk/replicate@3.0.69",
-      "testRef": "682e2dd71456f14f9da33a1b983d1998c3a1184c",
-      "testRefRelationship": "inventory-snapshot-not-release-verified",
-      "contractFamilies": [],
-      "contractReview": "not-imported; inspect upstream declarations before extraction"
+      "archiveIntegrity": "sha512-GLHsXOQaAkRILAHiKV2NxiL2tSQeMmakDO5+7no6OjvKc2YYnMsDQopu5Dqw4AMW28tUGQIjJnyNdbD4BvFV1w==",
+      "sourceRef": "npm:@ai-sdk/replicate@3.0.73",
+      "testRef": "9b603d36186b75e58d5479445a96c76f6e2d2700",
+      "testRefRelationship": "matching-release",
+      "contractFamilies": [
+        "ImageModelV4",
+        "ProviderV4"
+      ],
+      "contractReview": "2026-11-01: published declarations, source and exact matching-release changed tests reviewed; scoped dispositions and Swift translations are in Docs/WeeklyUpstreamAudit20261101.json. Existing broader product gaps remain; reviewed delta is not full-package parity."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -54,7 +57,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Porting/map.json",
-      "sha256": "ae7180db377daf1c9f4c7baf7870d4498a940abf6be20721f9286701a050d411"
+      "sha256": "028fc856f1e5ccb16c7537523b046e2f34a4add2a8094df5328f0d181c5dd346"
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/README.md",
@@ -70,7 +73,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Sources/SwiftAIReplicate/ReplicateProvider.swift",
-      "sha256": "ac16175cc4487492663c064cfb07f00dddbffdfaa991f7fd5f7264366f78c060"
+      "sha256": "15864974e7d608a718e9bb96b5fbf2ee1e54d8759375ee41fc256e76f0192be9"
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/FixtureDownloadTransport.swift",
@@ -78,11 +81,15 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/ReplicateProviderTests.swift",
-      "sha256": "a63860539caabfca7ce77f94f32dd4b783c01c4045e4eb6a4050851b8b377cf9"
+      "sha256": "9a5e14dd9a6e27eff64d9e2f96c6f047387072419e0d3db807a8b264329e8c08"
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/TestSupport.swift",
       "sha256": "bbb174da9e18b81b7e7baeda337fc96f3005097a438743992eebdb129ced4b5c"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/Weekly20261101CredentialsTests.swift",
+      "sha256": "1262db8d86cc2d78fe889199a322fd346dc3f861de5d9a9704b98402f3fbe849"
     }
   ]
 }
