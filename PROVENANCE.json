@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-replicate",
-  "version": "1.1.1",
-  "releaseID": "weekly-upstream-20261108",
+  "version": "1.1.2",
+  "releaseID": "weekly-upstream-20261114",
   "source": {
-    "commit": "8e233ff96fb809445aff9a5c06bb6149a24b94da",
-    "baseCommit": "8e233ff96fb809445aff9a5c06bb6149a24b94da",
+    "commit": "07fbf86b82d83d9724bd03622e9e87e74395286f",
+    "baseCommit": "07fbf86b82d83d9724bd03622e9e87e74395286f",
     "workingTree": false,
-    "inputsSHA256": "987359720075cb67dd8bc45bdc049aee4c5d5a42b67a7eb148e697ce5d18bd77"
+    "inputsSHA256": "63e472c0fe891cb7636d225e1c6467e4761dc3721be68081f2afa9f0b656bb29"
   },
   "dependencies": [
     {
@@ -17,29 +17,29 @@
   ],
   "changes": [
     {
-      "id": "weekly-upstream-20261108",
-      "notes": "Best-effort trusted cancellation on image abort/exhaustion preserves original errors and isolates credentials/headers; seed zero stays native. Reviewed published upstream delta: @ai-sdk/replicate 3.0.73 to 3.0.78. Validation passed: node Scripts/test-packages.mjs (all 52 owning packages plus the complete local facade; 3,965 reported tests and 33 explicit live skips); node Scripts/sdk.mjs dev test; node Scripts/sdk.mjs generate --check; node --test Scripts/tests/*.test.cjs (27 passed); core/provider isolation and version resolution; 52 deterministic package exports, 106 catalog consumers and four additional exact retained-minimum graphs; docs-site install/check/build (100 pages); git diff --check. No paid live-service calls were run. The publication pipeline requires successful Swift 6.3.3 CI at the exact canonical source before publishing.",
-      "compatibility": "Patch release for behavior/header corrections without new required owning API. Existing call sites and exact old selectors are retained. Direct minimums change only for concrete API use or required inherited behavior. Version-delta review does not establish full-package parity or live-service acceptance."
+      "id": "weekly-upstream-20261114",
+      "notes": "Refresh the versioned request identity while retaining the current native request, response and stream behavior. Internal upstream model-catalog reorganizations preserve the existing native policies. Reviewed npm delta: @ai-sdk/replicate 3.0.78 to 3.0.83. Validation: `node Scripts/test-packages.mjs` passed all 52 owning suites and 1731 facade tests; tooling 27/27, generation/isolation checks, standalone exports and 106 minimum/latest consumers, documentation check and 101-page build passed. Publication requires green exact-source Swift 6.3.3 CI. Paid/live verification and full-package parity are not claimed.",
+      "compatibility": "Compatible behavior/header correction. Original public selectors are preserved. npm baselines and Swift SemVer are independent; this reviewed delta does not establish full-package or live-service parity."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-replicate",
   "upstream": [
     {
       "name": "@ai-sdk/replicate",
-      "reviewedVersion": "3.0.78",
+      "reviewedVersion": "3.0.83",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.replicate`, `ReplicateImageModel`, `ReplicateVideoModel`, `ReplicateProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json",
+      "evidence": "`AIProviders.replicate`, `ReplicateImageModel`, `ReplicateVideoModel`, `ReplicateProviderTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/WeeklyUpstreamAudit20261114.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-bPihHZ37quu6sf2HDg4ve+BCHC7920cbnSsBCWzwynAiKlqZkZqIDy3uNE56bWsTfO/EkkE8l0FW/o2EE85kmQ==",
-      "sourceRef": "npm:@ai-sdk/replicate@3.0.78",
-      "testRef": "0f3a85f92d1ce06ccde01d662407ef83e097a712",
+      "archiveIntegrity": "sha512-pOXbkjmcpzyOj9tXbpR/6HaNX2YxjC5vX2SpnluoL4PolzCRcf3YQ99hopW+pVoUweySkraPbfWa6qxckix/WQ==",
+      "sourceRef": "npm:@ai-sdk/replicate@3.0.83",
+      "testRef": "8bc7652cdb13fc84722666eb93f45acd0d131eee",
       "testRefRelationship": "matching-release",
       "contractFamilies": [
         "ImageModelV4",
         "ProviderV4",
         "VideoModelV4"
       ],
-      "contractReview": "2026-11-08: published declarations/source and exact matching-release changed tests reviewed; native implementations, per-file dispositions and broader retained gaps are recorded in Docs/WeeklyUpstreamAudit20261108.json. Reviewed delta is not full-package or live-service parity."
+      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -58,7 +58,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Porting/map.json",
-      "sha256": "aeb524bd92ccb00390ee899f3f4c40493df685013199bf518bf41b812ddd29ab"
+      "sha256": "1d3ae4f2be6fab87ca4bc0b39ebd73ca1df46abb8d5328cdd72f615b72e41f16"
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/README.md",
@@ -74,7 +74,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Sources/SwiftAIReplicate/ReplicateProvider.swift",
-      "sha256": "b0eb9858035d52519fd30644ae94fcfd7e8ec95bbb759923a6eae24807d4ebba"
+      "sha256": "7e27fe0b51fc9d1632c68598a6a56dd311b3d9a8e726094f0bacf97dc94a72ed"
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/FixtureDownloadTransport.swift",
@@ -82,7 +82,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/ReplicateProviderTests.swift",
-      "sha256": "fa20de54bd12f85b73df41a5d2e059a88f70abf66f4601cb9daa2b824dab8320"
+      "sha256": "bee06d4d91278436ef969ca5c6002186bc7e24bf48b5ecca4c2b726ba012525c"
     },
     {
       "canonicalPath": "Packages/swift-ai-replicate/Tests/SwiftAIReplicateTests/TestSupport.swift",
