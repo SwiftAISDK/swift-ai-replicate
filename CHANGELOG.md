@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0
+## 1.2.1
 
-- Video no longer sends the `prefer` header and supports async start/status with webhooks; `num_outputs` is always sent; `maxImagesPerCall` is 8 for Flux-2 and 1 otherwise.
-  Compatibility: Source-compatible; changes are additive. Request bodies, results, warnings and errors change to match the reviewed upstream package.
+- Align the provider request identity with @ai-sdk/replicate 3.0.86 after comparing source, declarations and matching-release tests against 3.0.84. Offline validation passed: node Scripts/test-packages.mjs (56 packages, 3672 owning tests and 1760 compatibility tests), generation, tooling, isolation, and version selection. See Docs/Archive/WeeklyUpstreamAudit20261122.md for retained gaps. Paid provider calls were skipped.
+  Compatibility: Source-compatible request-header update.
